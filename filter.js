@@ -74,7 +74,7 @@ function capitalize(sentence) {
   return words.join(' ');
 }
 
-// Print only books that have more than 2 words in their name
+// Print only books that have more than 2 words in their title
 const bookArray = [
   {
     title: 'Harry Potter',
@@ -91,5 +91,89 @@ const bookArray = [
   {
     title: 'A Song of Ice and Fire',
     author: 'George RR Martin'
-  } //
+  }
 ];
+
+// Expect to get back: Name of the Wind, Wheel of Time, A Song of Ice and Fire
+// use split around spaces to count how many words there are
+function printLongBookTitles(books) {
+  // let longBooks = books.filter(book => book.title.split(' ').length > 2)
+  let longBooks = books.filter(book => {
+    if (book.title.split(' ').length > 2) {
+      // title is longer than 2 words
+      return true;
+    }
+  });
+  console.log(longBooks);
+}
+
+function printLongBookTitlesAndAuthors(books) {
+  // let longBooks = books.filter(book => book.title.split(' ').length > 2)
+  let longBooks = books.filter(book => {
+    if (book.title.split(' ').length > 2) {
+      // title is longer than 2 words
+      return true;
+    }
+  });
+
+  let finalArray = longBooks.map(book => book.title + ' - ' + book.author);
+
+  console.log(finalArray);
+}
+
+// Chaining array methods on the same line
+
+const fruits = ['Apple', 'Banana', 'Mango', 'Orange', 'Peach', 'Pear', 'Plum'];
+
+// Make jellybeans out of the short fruits
+// Short fruits are fruits with 5 or less characters
+// Jellybeans are fruits with ' Jellybeans' appended
+function makeShortJellybeans(inFruits) {
+  const jb = inFruits
+    .filter(fruit => fruit.length < 6) // Call filter on inFruits
+    .map(fruit => `${fruit} Jellybeans`); // Call map on the RESULT of filter
+  console.log(jb);
+}
+
+// Map then filter - Convert prices to numeric values then see if they're in your price range
+const prices = ['20.00', '25.25', '17.35', '10.00', '300'];
+
+function findItemsInPriceRange(inPrices) {
+  let affordableItems = inPrices
+    .map(price => Number(price)) // Convert string values into numbers
+    .filter(price => price < 20); // Return items that cost less than $20
+  return affordableItems;
+}
+
+// Create smoothies based on whether or not the item is a vegetable or a fruit
+
+// Create an array similar to the following one using a map:
+// const ingredients = [
+//   {
+//     name: 'Apple',
+//     type: 'fruit'
+//   },
+//   {
+//     name: 'Carrot',
+//     type: 'vegetable'
+//   }
+// ];
+const fruits = ['Apple', 'Banana', 'Mango', 'Orange', 'Peach', 'Pear', 'Plum'];
+const vegetables = ['Carrot', 'Cucumber', 'Cauliflower', 'Cabbage', 'Corn'];
+
+// Create fruits object array
+const fruitObjects = fruits.map(fruit => {
+  return { name: fruit, type: 'fruit' };
+});
+// Create vegetables object array
+const veggieObjects = vegetables.map(vegetable => {
+  return { name: vegetable, type: 'vegetable' };
+});
+
+const ingredients = fruitObjects.concat(veggieObjects);
+
+// Write a function that creates 'smoothies' out of the ingredients provided. Only use ingredients that the user requests
+function createSmoothies(ingredients, type) {
+  // Get all the items of the type
+  // Create smoothies out of those items
+}
