@@ -189,7 +189,7 @@ function createSmoothies(ingredients, type) {
 
 // Example of call: createSmoothies(ingredients, 'fruit')
 
-// Find each pair of consecutive items where the total number of letters between them is 12 (Ex: 'code' + 'function' = 12). Combine each 12-letter pair int oa new hyphenated gibberish 'word' (ex: 'code-function'), and store each combo into a new array. Make sure that the new array contains no empty strings or null items, that the lengtho f each new item in the array is 13, and that the length of the new array itself is also 13. So the final array contains 13 items of 13 characters each.
+// Find each pair of consecutive items where the total number of letters between them is 12 (Ex: 'code' + 'function' = 12). Combine each 12-letter pair into a new hyphenated gibberish 'word' (ex: 'code-function'), and store each combo into a new array. Make sure that the new array contains no empty strings or null items, that the lengtho f each new item in the array is 13, and that the length of the new array itself is also 13. So the final array contains 13 items of 13 characters each.
 
 const words = [
   'forklift',
@@ -282,4 +282,94 @@ const words = [
   'watermelon',
   'ox',
   'parade'
+];
+
+//Write a filter that returns only veggies that start with a C (either lowercase OR uppercase) from the following array. You should end up with ['Carrot', 'Celery', 'cabbage', 'cauliflower', 'Cucumber']
+
+const veggies = [
+  'Carrot',
+  'Kale',
+  'Celery',
+  'Lettuce',
+  'cabbage',
+  'radish',
+  'turnip',
+  'cauliflower',
+  'broccoli',
+  'Arugula',
+  'Cucumber'
+];
+
+// Given the following array of two-word phrases, use map to convert them to camelCase words. The results will be as follows:
+// launch app -> launchApp
+// deal cards -> dealCards
+// register user -> registerUser
+// etc
+
+const phrasesArr = [
+  'launch app',
+  'deal cards',
+  'register user',
+  'encrypt message',
+  'deal blackjack',
+  'compare prices',
+  'order pizza',
+  'parse data',
+  'set cookies',
+  'read email',
+  'update record',
+  'hash passwords',
+  'choose flavor',
+  'send request',
+  'handle response',
+  'empty cart',
+  'toggle autoplay',
+  'detect collision',
+  'announce winner',
+  'play song',
+  'swap image',
+  'validate form',
+  'start blender',
+  'apply filter',
+  'change direction'
+];
+
+// Pluralize words:
+/*
+  Use map to generate a pluralized list of words. Use the following examples to fill your conversion rules:
+
+  apple -> apples, apricot -> apricots, blueberry -> blueberries, cherry -> cherries, mango -> mangoes, stretch -> stretches, church -> churches
+
+
+*/
+
+const words = [
+  'apple',
+  'apricot',
+  'banana',
+  'blueberry',
+  'cherry',
+  'church',
+  'clementine',
+  'dragonberry',
+  'elderberry',
+  'grape',
+  'grapefruit',
+  'kiwi',
+  'lemon',
+  'lime',
+  'mango',
+  'nectarine',
+  'orange',
+  'papaya',
+  'peach',
+  'pear',
+  'pineapple',
+  'plum',
+  'pomegranate',
+  'raspberry',
+  'strawberry',
+  'stretch',
+  'tangerine',
+  'watermelon'
 ];
