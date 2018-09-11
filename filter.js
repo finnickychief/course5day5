@@ -175,5 +175,111 @@ const ingredients = fruitObjects.concat(veggieObjects);
 // Write a function that creates 'smoothies' out of the ingredients provided. Only use ingredients that the user requests
 function createSmoothies(ingredients, type) {
   // Get all the items of the type
+  let filteredItems = ingredients.filter(item => item.type === type);
+
   // Create smoothies out of those items
+  const smoothies = filteredItems.map((item, i, array) => {
+    if (array[i + 1] !== undefined) {
+      // Make sure the last one doesn't try to reference a property
+      return `${item.name}-${array[i + 1].name}`;
+    }
+  });
+  return smoothies.slice(0, smoothies.length - 1); // Remove the last item, which will be 'undefined'
 }
+
+// Example of call: createSmoothies(ingredients, 'fruit')
+
+// Find each pair of consecutive items where the total number of letters between them is 12 (Ex: 'code' + 'function' = 12). Combine each 12-letter pair int oa new hyphenated gibberish 'word' (ex: 'code-function'), and store each combo into a new array. Make sure that the new array contains no empty strings or null items, that the lengtho f each new item in the array is 13, and that the length of the new array itself is also 13. So the final array contains 13 items of 13 characters each.
+
+const words = [
+  'forklift',
+  'bale',
+  'raindrop',
+  'mule',
+  'code',
+  'function',
+  'java',
+  'fedora',
+  'radio',
+  'factoid',
+  'raspberry',
+  'fluke',
+  'curveball',
+  'fang',
+  'boot',
+  'fastball',
+  'trap',
+  'paperclip',
+  'pin',
+  'food',
+  'gondola',
+  'fist',
+  'bulldog',
+  'zebra',
+  'fort',
+  'kindling',
+  'fur',
+  'banana',
+  'fuse',
+  'boat',
+  'stapler',
+  'fool',
+  'cherry',
+  'wisdom',
+  'fund',
+  'artichoke',
+  'husk',
+  'five',
+  'book',
+  'fan',
+  'code',
+  'function',
+  'java',
+  'fedora',
+  'sparks',
+  'radio',
+  'saxophone',
+  'cab',
+  'fluke',
+  'curveball',
+  'cat',
+  'fang',
+  'javascript',
+  'ax',
+  'boot',
+  'fastball',
+  'truck',
+  'apples',
+  'banana',
+  'blueberry',
+  'cherry',
+  'grape',
+  'grapes',
+  'garage',
+  'kiwi',
+  'lemon',
+  'orange',
+  'doggie',
+  'lime',
+  'popsicle',
+  'violin',
+  'mango',
+  'nectarine',
+  'oranges',
+  'peach',
+  'bluebird',
+  'plum',
+  'zipper',
+  'pear',
+  'papaya',
+  'pineapple',
+  'raspberry',
+  'turkey',
+  'giblet',
+  'strawberry',
+  'toy',
+  'tangerine',
+  'watermelon',
+  'ox',
+  'parade'
+];
