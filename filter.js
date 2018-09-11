@@ -189,7 +189,7 @@ function createSmoothies(ingredients, type) {
 
 // Example of call: createSmoothies(ingredients, 'fruit')
 
-// Find each pair of consecutive items where the total number of letters between them is 12 (Ex: 'code' + 'function' = 12). Combine each 12-letter pair into a new hyphenated gibberish 'word' (ex: 'code-function'), and store each combo into a new array. Make sure that the new array contains no empty strings or null items, that the lengtho f each new item in the array is 13, and that the length of the new array itself is also 13. So the final array contains 13 items of 13 characters each.
+// Find each pair of consecutive items where the total number of letters between them is 12 (Ex: 'code' + 'function' = 12). Combine each 12-letter pair into a new hyphenated gibberish 'word' (ex: 'code-function'), and store each combo into a new array. Make sure that the new array contains no empty strings or null items, that the length of each new item in the array is 13, and that the length of the new array itself is also 13. So the final array contains 13 items of 13 characters each.
 
 const words = [
   'forklift',
@@ -284,6 +284,26 @@ const words = [
   'parade'
 ];
 
+// Only return the first 13
+
+function hyphenateWords(arr) {
+  // Build list of hyphenated words
+  let hyphWords = arr.map((item, i, array) => {
+    if (array[i + 1] !== undefined) {
+      return `${item}-${array[i + 1]}`;
+    }
+  });
+
+  // Ensure that none of the items are empty or null
+  hyphWords = hyphWords.filter(item => item); // If the item is not a falsy value, keep it
+
+  // Filter out all of the compound words that are not 13 characters
+  hyphWords = hyphWords.filter(item => item.length === 13); // Keep items where the length is exactly 13
+
+  // return only the first 13
+  return hyphWords.slice(0, 13);
+}
+
 //Write a filter that returns only veggies that start with a C (either lowercase OR uppercase) from the following array. You should end up with ['Carrot', 'Celery', 'cabbage', 'cauliflower', 'Cucumber']
 
 const veggies = [
@@ -299,6 +319,12 @@ const veggies = [
   'Arugula',
   'Cucumber'
 ];
+
+function filterVeggies(arr) {
+  // Filter out veggies that don't start with a c
+  return arr.filter(item => item[0].toLowerCase() === 'c');
+  // return arr.filter(item => item.charAt(0).toLowerCase() === 'c');
+}
 
 // Given the following array of two-word phrases, use map to convert them to camelCase words. The results will be as follows:
 // launch app -> launchApp
@@ -334,12 +360,21 @@ const phrasesArr = [
   'change direction'
 ];
 
+phrasesArr.map(item => {
+  // Split the words into two items
+  item = item.split(' ');
+  // Capitalize the first letter of the second word
+  item[1] = item[1][0].toUpperCase() + item[1].slice(1);
+  // Join the 2 words together, with no space
+  item = item.join('');
+  return item;
+});
+
 // Pluralize words:
 /*
   Use map to generate a pluralized list of words. Use the following examples to fill your conversion rules:
 
-  apple -> apples, apricot -> apricots, blueberry -> blueberries, cherry -> cherries, mango -> mangoes, stretch -> stretches, church -> churches
-
+  apple -> apples, apricot -> apricots, blueberry -> blueberries, cherry -> cherries, mango -> mangoes, church -> churches
 
 */
 
@@ -369,7 +404,22 @@ const words = [
   'pomegranate',
   'raspberry',
   'strawberry',
-  'stretch',
   'tangerine',
   'watermelon'
 ];
+
+// when it ends with y, convert the y to ies
+// when it ends in o or h, adding es onto the end
+// otherwise, just add an s
+
+let pluralized = words.map(item => {
+  lastChar = item[item.length - 1];
+  if (lastChar === 'y') {
+    item = item.slice(0, item.length - 1);
+    return item + 'ies';
+  } else if (lastChar === 'h' || lastChar === 'o') {
+    return item + 'es';
+  } else {
+    return item + 's';
+  }
+});
